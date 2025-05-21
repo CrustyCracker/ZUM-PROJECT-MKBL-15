@@ -264,4 +264,19 @@ def run_experiment():
 
 # Uruchomienie eksperymentu
 if __name__ == "__main__":
-    results = run_experiment()
+    # results = run_experiment()
+    
+    
+    # Open dataset donor/donor.csv and calculate how many class 0 and class 1 are in the dataset
+    donor_data = pd.read_csv('data/donor/donor.csv')
+    class_counts = donor_data.iloc[:, -1].value_counts()  # Assuming the last column contains the class labels
+    print(f"Class 0 count: {class_counts.get(0, 0)}")
+    print(f"Class 1 count: {class_counts.get(1, 0)}")
+
+
+    #sprawdz najwyższą i najmniejszą wartość w kolumnie amount dla datasetu data/creditcard/creditcard.csv
+    creditcard_data = pd.read_csv('data/creditcard/creditcard.csv')
+    min_amount = creditcard_data['Amount'].min()
+    max_amount = creditcard_data['Amount'].max()
+    print(f"Minimum amount: {min_amount}")
+    print(f"Maximum amount: {max_amount}")
